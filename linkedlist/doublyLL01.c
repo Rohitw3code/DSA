@@ -11,10 +11,11 @@ struct node{
 int main(){
 
 	struct node *head,*newnode,*temp;
+	int size = 5;
 
 	head = 0;
 
-	for(int i=0;i<5;i++){
+	for(int i=0;i<size;i++){
 		newnode = (struct node*) malloc(sizeof(struct node));
 
 		printf("Enter : ");
@@ -32,9 +33,12 @@ int main(){
 			newnode->previous = temp;
 			temp = newnode;
 		}
+	}
 
-
-
+	printf("\nAll items ");
+	for(int i=0;i<size;i++){
+		printf("\nitem : %d ",head->data);
+		head = head->next;
 	}
 
 
