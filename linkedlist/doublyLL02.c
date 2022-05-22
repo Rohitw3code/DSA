@@ -11,8 +11,9 @@ int len(struct node* head){
 	int size = 0;
 	while(head!=0){
 		head = head->next;
+		size+=1;
 	}
-	return size+1;
+	return size;
 }
 
 void addHeadNode(struct node* *head){
@@ -20,16 +21,29 @@ void addHeadNode(struct node* *head){
 	newnode->previous = 0;
 	printf("Head Node : ");
 	scanf("%d",&newnode->data);
-	newnode->next = (*head)->next;
+	newnode->next = (*head);
 	(*head)->previous = newnode;
 	(*head) = newnode;
 }
+
+void addEndNode(struct node* *tail){
+	struct node * newnode = (struct node*) malloc(sizeof(struct node));
+	newnode->next = 0;
+	printf("End Node : ");
+	scanf("%d",&newnode->data);
+	newnode->previous = *tail;
+	(*tail)->next = newnode;
+}
+
 
 
 int main(){
 
 	struct node *head,*newnode,*temp;
-	int size = 5;
+	int size;
+
+	printf("Size : ");
+	scanf("%d",&size);
 
 	head = 0;
 
@@ -54,10 +68,13 @@ int main(){
 	}
 
 	addHeadNode(&head);
+	addEndNode(&temp);
 
 
-	printf("\nAll items size %d ",len(head));
-	for(int i=0;i<len(head);i++){
+	size = len(head);
+	printf("\nAll items size %d ",size);
+
+	for(int i=0;i<size;i++){
 		printf("\nitem : %d ",head->data);
 		head = head->next;
 	}
