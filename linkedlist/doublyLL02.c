@@ -35,6 +35,25 @@ void addEndNode(struct node* *tail){
 	(*tail)->next = newnode;
 }
 
+void addNodeAtPos(struct node* head,int pos){
+	for(int i=0;i<pos;i++){
+		if (i == pos-1)
+		{
+			break;
+		}
+		head = head->next;
+	}
+	struct node * newnode = (struct node*) malloc(sizeof(struct node));
+	printf("Pos Node : ");
+	scanf("%d",&newnode->data);
+
+	newnode->next = head->next;
+	newnode->previous = head;
+	head->next = newnode;
+	head = head->next;
+	head->previous = newnode;
+
+}
 
 
 int main(){
@@ -67,8 +86,10 @@ int main(){
 		}
 	}
 
-	addHeadNode(&head);
-	addEndNode(&temp);
+	// addHeadNode(&head);
+	// addEndNode(&temp);
+
+	addNodeAtPos(head,2);
 
 
 	size = len(head);
