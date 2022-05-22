@@ -46,13 +46,11 @@ void addNodeAtPos(struct node* head,int pos){
 	struct node * newnode = (struct node*) malloc(sizeof(struct node));
 	printf("Pos Node : ");
 	scanf("%d",&newnode->data);
-
 	newnode->next = head->next;
 	newnode->previous = head;
 	head->next = newnode;
 	head = head->next;
 	head->previous = newnode;
-
 }
 
 
