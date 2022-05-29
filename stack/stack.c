@@ -43,7 +43,7 @@ void peek(){
 		printf("underflow");
 	}
 	else{
-		printf("%d",stack[top]);
+		printf("\npeak %d",stack[top]);
 	}
 }
 
