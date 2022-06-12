@@ -83,7 +83,7 @@ int main(){
 
 	}
 
-	delete(&head,&size,1);
+	delete(&head,&size,1); // To delete the node with index 1
 
 	TraverseList(head,size);
 
