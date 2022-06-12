@@ -9,9 +9,7 @@ struct node{
 struct node *head,*newnode, *temp;
 
 void push(){
-
 	newnode = (struct node*) malloc(sizeof(struct node));
-
 	int data;
 	printf("Enter : ");
 	scanf("%d",&data);
@@ -47,9 +45,6 @@ int main(){
 
 	display();
 
-
-
-
-
 	return 0;
+
 }
