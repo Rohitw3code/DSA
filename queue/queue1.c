@@ -44,6 +44,15 @@ void display(){
 	}
 }
 
+void peek(){
+	if(front == -1 && rear == -1){
+		printf("Empty Queue");
+	}
+	else{
+		printf("%d",queue[front]);
+	}
+}
+
 
 int main(){
 
@@ -52,7 +61,8 @@ int main(){
 	enqueue(-3);
 	dequeue();
 	enqueue(6);
-	display();
+//	display();
+	peek();
 
 	return 0;
 }
