@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 struct node{
 	int data;
@@ -8,9 +9,9 @@ struct node{
 struct node* create(){
 	int x;
 	struct node* newnode;
-	newnode = malloc(sizeof(struct node));
+	newnode = (struct node*) malloc(sizeof(struct node));
 
-	printf("Enter Data : ");
+	printf("Enter Data : \n");
 	scanf("%d",&x);
 
 	if(x == -1){
@@ -19,10 +20,10 @@ struct node* create(){
 	
 	newnode->data = x;
 
-	printf("Enter Left of %d ",x);
+	printf("Enter Left of %d \n",x);
 	newnode->left = create();
 
-	printf("Enter Right of %d ",x);
+	printf("Enter Right of %d \n",x);
 	newnode->right = create();
 
 	return newnode;
