@@ -6,12 +6,21 @@ struct node{
 	struct node *left,*right;
 };
 
+void preorder(struct node* root){
+	if(root == 0){
+		return;
+	}
+	printf("%d ",root->data);
+	preorder(root->left);
+	preorder(root->right);
+}
+
 struct node* create(){
 	int x;
 	struct node* newnode;
 	newnode = (struct node*) malloc(sizeof(struct node));
 
-	printf("Enter Data : \n");
+	printf("Enter Data : ");
 	scanf("%d",&x);
 
 	if(x == -1){
@@ -20,14 +29,14 @@ struct node* create(){
 	
 	newnode->data = x;
 
-	printf("Enter Left of %d \n",x);
+	printf("Enter Left of %d \n ",x);
 	newnode->left = create();
 
-	printf("Enter Right of %d \n",x);
+	printf("Enter Right of %d \n ",x);
 	newnode->right = create();
 
 	return newnode;
-	
+
 }
 
 int main(){
@@ -35,6 +44,8 @@ int main(){
 	struct node *root;
 
 	root = create();
+	printf("Preorder ");
+	preorder(root);
 
 	return 0;
 }
