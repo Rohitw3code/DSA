@@ -27,6 +27,7 @@ struct node* create(){
 	newnode->right = create();
 
 	return newnode;
+
 }
 
 int main(){
