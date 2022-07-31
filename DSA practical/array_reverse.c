@@ -2,7 +2,7 @@
 #include<string.h>
 void rev_array(char str[]);
 int main(){
-    char str[]="rehan";
+    char str[]="Rohit";
     rev_array(str);
     for(int i=0;i<strlen(str);i++)
         printf("%c",str[i]);

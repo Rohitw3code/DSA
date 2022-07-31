@@ -17,8 +17,8 @@ void main()
     printf("Enter 10 elements :");
     for(int i=0;i<10;i++)
         scanf("%d",&arr[i]);
-    for(int i=0;i<10;i++)
-    {
+
+    for(int i=0;i<10;i++) {
         newn=(st *)malloc(sizeof(st));
         if(newn==NULL)
             break;
@@ -26,11 +26,9 @@ void main()
         newn->left=newn->right=NULL;
         if(root==NULL)
             root=newn;
-        else
-        {
+        else{
             nr=root;
-            while(nr!=NULL)
-            {
+            while(nr!=NULL){
                 pr=nr;
                 if(newn->data > nr->data)
                     nr=nr->right;
@@ -51,26 +49,21 @@ void main()
 
 void preorder(st *root)
 {
-    if(root!=NULL)
-    {
+    if(root!=NULL){
         printf("%d\n",root->data);
         preorder(root->left);
         preorder(root->right);
     }
 }
-void inorder(st *root)
-{
-    if(root!=NULL)
-    {
+void inorder(st *root){
+    if(root!=NULL){
         inorder(root->left);
         printf("%d\n",root->data);
         inorder(root->right);
     }
 }
-void postorder(st *root)
-{
-    if(root!=NULL)
-    {
+void postorder(st *root){
+    if(root!=NULL){
         postorder(root->left);
         postorder(root->right);
         printf("%d\n",root->data);
