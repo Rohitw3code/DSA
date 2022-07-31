@@ -1,8 +1,10 @@
 #include<stdio.h>
 
+#define N 10
+
 int hashf(int key)
 {
-    return key%10;
+    return key%N;
 }
 
 void searchf(int ar[])
@@ -18,14 +20,12 @@ void searchf(int ar[])
 
 int main()
 {
-    int ar[10],key;
-    for (int i = 0; i < 10; i++)
-    {
+    int ar[N],key;
+    for (int i = 0; i < N; i++){
         ar[i]=0;
     }
     
-    while(1)
-    {
+    while(1){
         printf("Enter element or type '-1' to print the elements :");
         scanf("%d",&key);
         if(key==-1)
@@ -39,7 +39,7 @@ int main()
         }
     }
     printf("Array =>\n");
-    for(int j=0;j<10;j++)
+    for(int j=0;j<N;j++)
         printf("%d\n",ar[j]);
     searchf(ar);
     return 0;
