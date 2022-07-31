@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-typedef struct tnode
-{
+typedef struct tnode{
     int data;
     struct tnode *left;
     struct tnode *right;

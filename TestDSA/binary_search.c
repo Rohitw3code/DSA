@@ -1,33 +1,63 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int binSearch(int arr[],int size,int s){
-	int l = 0;
-	int mid;
-	int h = size;
-	int flag = 0;
-	while(l<=h){
-		mid = (l+h)/2;
-		if(arr[mid] == s){
-			flag = 1;
+#define N = 10
+
+typedef struct tnode{
+	int data;
+	struct tnode *left;
+	struct tnode *right;
+} st;
+
+
+void main(){
+	int i,arr[N];
+
+	st *newn,*root,*pr,*nr;
+	root = NULL;
+	printf("Enter 10 Elements");
+	for(int i=0;i<N;i++)
+		{scanf("%d",&arr[i]);}
+
+	for (int i = 0; i < N; ++i){
+		newn = (st*) malloc(sizeof(st));
+		if newn == NULL
 			break;
-		}
-		else if(arr[mid]>s){
-			l = mid+1;
-		}
+
+		newn->data = arr[i];
+		newn->left = newn->right = NULL;
+
+		if root == NULL
+			root = newn;
 		else{
-			h = mid-1;
+			nr = root;
+			while(nr!=NULL){
+				pr = nr;
+				if(newn->data > nr->data)
+					nr = nr->right;
+				else nr = nr->left;
+			}	
+
+			if(newn->data > pr->data)
+				pr->right = newn;
+			else pr->left = newn;
 		}
 	}
-	return flag;
+
+
+
+
+
+
+
+
+
 }
 
+
+
+
 int main(){
-
-	int arr[] = {7,8,6,4,9,3,2};
-	int flag = binSearch(arr,7,35);
-
-	if(flag == 0) printf("Not Found");
-	else printf("Found");
 
 	return 0;
 }
